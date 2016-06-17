@@ -1,0 +1,23 @@
+<form name="pizzaForm" ng-submit="$ctrl.updatePizza(pizzaForm)" novalidate >
+
+    <label for="name">Nom :</label>
+    <input 
+    name="name" 
+    type="text" 
+    id="name" 
+    ng-model="$ctrl.pizza.name" 
+    ng-model-options="{ updateOn : 'blur' }"
+    required>
+    <p class="text-danger" ng-if="pizzaForm.name.$invalid && pizzaForm.name.$touched">Nom obligatoire</p>
+
+    <br>
+
+   <pizza-toppings
+      on-add-topping="$ctrl.addTopping($event)"
+      all-toppings="$ctrl.toppings" 
+      toppings="$ctrl.pizza.toppings">
+    </pizza-toppings>
+    <br>
+    <button type="submit">enregistrer</button>
+
+  </form>

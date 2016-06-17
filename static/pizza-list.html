@@ -1,0 +1,49 @@
+<div>
+  <input ng-model="query" type="text" class="form-control" />
+  <div class="text-align:center" ng-if="!ctrlP.listePizzas">
+    <img src="default.gif" alt="">
+  </div>
+  <table ng-show="ctrlP.listePizzas" class="table table-striped" id="listePizza">
+    <thead>
+      <tr>
+        <th class="text-center"><button ng-click="ctrlP.ordering='name';orderBool=!orderBool">Nom pizza</button></th>
+        <th class="text-center"><button ng-click="ctrlP.ordering='toppings';orderBool=!orderBool">Ingredient</button></th>
+        <th class="text-center"><button ng-click="ctrlP.ordering='isCook';orderBool=!orderBool">Cuisson</button></th>
+        <th class="text-center">supprimer</th>
+      </tr>
+      <tr class="text-center" ng-repeat="pizza in ctrlP.listePizzas | orderBy:ctrlP.sortPizzas():orderBool | filter:{name:query} track by $index">
+        <td><a href="#/pizzas/{{ pizza.id }}" ng-click="ctrlP.show=true;ctrlP.savePizza=pizza">{{ pizza.name }}</a></td>
+        <td>{{ pizza._toppings }}</td>
+        <td>
+          <button ng-click="ctrlP.tamponFunction(ctrlP.pizzaAttenteCuisson.push(pizza))" ng-if="!pizza.isCook" class="btn">cook me</button>
+          <span ng-if="pizza.isCook">CUITE</span>
+        </td>
+        <td ng-click="ctrlP.deletePizza(pizza.id)"><span>&times;</span></td>
+      </tr>
+    </thead>
+  </table>
+  <input id="value_addPizza" type="texte" ng-model="ctrlP.name" />
+  <button ng-click="ctrlP.addPizza(ctrlP.name)" class="btn btn-primary">
+    Nouvelle Pizza
+  </button>
+  <br>
+  <br>
+  <div ng-if="ctrlP.show">
+    <form name="pizzaForm" ng-submit="ctrlP.updatePizza(pizzaForm);ctrlP.show=false" novalidate>
+
+      <label for="name">Nom Pizza :</label>
+      <input name="name" type="text" id="name" ng-model="ctrlP.savePizza.name" ng-model-options="{ updateOn : 'blur' }" required>
+      <p class="text-danger" ng-if="pizzaForm.name.$invalid && pizzaForm.name.$touched">Nom obligatoire</p>
+
+      <br>
+
+      <label for="topping_{{key}}" ng-repeat="(key, value) in ctrlP.listTopping track by $index">
+      <input id="topping_{{key}}" type="checkbox" name="topping" ng-model="ctrlP.savePizza.toppings[$index]">{{ value.fr }}
+      </label>
+
+      <button type="submit">save</button>
+      <pre>{{ ctrlP.savePizza | json }}</pre>
+
+    </form>
+  </div>
+</div>

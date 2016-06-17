@@ -1,0 +1,13 @@
+<h2>toppings</h2>
+<div class="col-md-12">
+  <div dta-drop="$ctrl.dropped()" class="col-md-6 col-xs-6">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="(key, value) in $ctrl.toppingsTranslate track by $index"><a href ng-click="$ctrl.addListToppings(value.topping_key)">{{ value.topping }}</a></li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-xs-6">
+    <ul class="list-group">
+      <li class="list-group-item" dta-drag="$ctrl.draggedTopping = key" ng-repeat="(key, value) in $ctrl.allToppings"><a>{{ value.fr }}</a></li>
+    </ul>
+  </div>
+</div>

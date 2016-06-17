@@ -1,0 +1,81 @@
+{
+  "pizzas": [
+    {
+      "name": "peponi",
+      "toppings": [
+        "eggs",
+        "mushrooms",
+        "mozzarella",
+        "mushrooms",
+        "eggs",
+        "artichoke",
+        "ham"
+      ],
+      "isCook": true,
+      "id": 2
+    },
+    {
+      "id": 2,
+      "name": "royale",
+      "isCook": false,
+      "toppings": [
+        "eggs",
+        "mushrooms"
+      ]
+    }
+  ],
+  "toppings": {
+    "tomato_sauce": {
+      "fr": "sauce tomate",
+      "en": "tomato sauce"
+    },
+    "mozzarella": {
+      "fr": "mozzarelle",
+      "en": "mozzarella"
+    },
+    "mushrooms": {
+      "fr": "champignon",
+      "en": "mushrooms"
+    },
+    "ham": {
+      "fr": "jambon",
+      "en": "ham"
+    },
+    "eggs": {
+      "fr": "oeuf",
+      "en": "eggs"
+    },
+    "artichoke": {
+      "fr": "articho",
+      "en": "artichoke"
+    },
+    "green_olives": {
+      "fr": "olives verte",
+      "en": "green olives"
+    },
+    "onion": {
+      "fr": "oignon",
+      "en": "onion"
+    },
+    "sweet_corn": {
+      "fr": "mais",
+      "en": "sweet corn"
+    },
+    "green_peppers": {
+      "fr": "poivre vert",
+      "en": "green peppers"
+    },
+    "black_olives": {
+      "fr": "olive noir",
+      "en": "black olives"
+    },
+    "peas": {
+      "fr": "pois",
+      "en": "peas"
+    },
+    "salami": {
+      "fr": "salami",
+      "en": "salami"
+    }
+  }
+}
